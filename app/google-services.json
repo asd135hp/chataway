@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "677100318279",
+    "project_id": "chataway-37683",
+    "storage_bucket": "chataway-37683.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677100318279:android:6313b3543f10b6ef56cb62",
+        "android_client_info": {
+          "package_name": "com.chataway"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677100318279-v9klfgivbdefn6nn81q1iittkk8rp573.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-F3pXHiPVZdUjCBewdVP-KtB1J0eZg_U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "677100318279-v9klfgivbdefn6nn81q1iittkk8rp573.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

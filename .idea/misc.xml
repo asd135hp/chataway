@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/build/classes" />
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
   </component>
-  <component name="ProjectType">
-    <option name="id" value="Android" />
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_chat_message_item.xml" value="0.1947463768115942" />
+        <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_chat_message_list.xml" value="0.1947463768115942" />
+        <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_item.xml" value="0.33" />
+        <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_item_list.xml" value="0.20244565217391305" />
+        <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_login.xml" value="0.2" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
