@@ -26,11 +26,9 @@ class LoginViewModel(private val firebaseAuth: FirebaseAuth) : ViewModel() {
     val isLoggedIn: Boolean
         get() = loginResult.value != null
 
-    fun login(email: String, password: String, isGuestSession: Boolean) {
+    fun login(email: String, password: String) {
         // either a guest session or a logged in session
-        val result =
-            if(isGuestSession) firebaseAuth.signInAnonymously()
-            else firebaseAuth.signInWithEmailAndPassword(email, password)
+        val result = firebaseAuth.signInWithEmailAndPassword(email, password)
 
         result.addOnCompleteListener { task ->
             if(task.isSuccessful) {

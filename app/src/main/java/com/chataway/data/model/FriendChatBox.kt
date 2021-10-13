@@ -1,9 +1,9 @@
 package com.chataway.data.model
 
-import java.net.URL
+import android.net.Uri
 
 data class FriendChatBox(
     val displayName: String,
     val latestMessage: String,
-    val photoURL: URL
+    val photoURL: Uri
 )

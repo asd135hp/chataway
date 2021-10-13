@@ -1,9 +1,18 @@
 package com.chataway.data.model
 
-import java.net.URL
+import android.net.Uri
 
 data class UserProfile(
-    val photoURL: URL,
-    val email: String,
-    val DOB: String
-)
+    val displayName: String?,
+    val photoURL: Uri?,
+    val email: String?,
+    val DOB: String = ""
+) {
+    fun toMap(): Map<String, String>
+    = mapOf(
+        "display_name" to "$displayName",
+        "photo_url" to "${photoURL?.encodedPath}",
+        "email" to "$email",
+        "dob" to DOB
+    )
+}

@@ -4,15 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_main_horizontal_margin"
+    android:paddingTop="@dimen/activity_main_vertical_margin"
+    android:paddingRight="@dimen/activity_main_horizontal_margin"
+    android:paddingBottom="@dimen/activity_main_vertical_margin"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/main_continue_as_guest_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/guest_login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <Button
+        android:id="@+id/main_login_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/real_login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_continue_as_guest_button"
+        app:layout_constraintVertical_bias="0.2" />
+
     <TextView
+        android:id="@+id/textView3"
+        style="@style/Theme.Chataway.Version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
 
+    <TextView
+        android:id="@+id/textView4"
+        style="@style/Theme.Chataway.MainLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.253" />
 </androidx.constraintlayout.widget.ConstraintLayout>

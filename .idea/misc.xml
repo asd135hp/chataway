@@ -8,11 +8,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/activity_chat_messages.xml" value="0.2" />
+        <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/activity_logged_in.xml" value="0.19067028985507245" />
+        <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/activity_profile_viewer.xml" value="0.19067028985507245" />
         <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_chat_message_item.xml" value="0.1947463768115942" />
         <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_chat_message_list.xml" value="0.1947463768115942" />
         <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_item.xml" value="0.33" />
         <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_item_list.xml" value="0.20244565217391305" />
         <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_login.xml" value="0.2" />
+        <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_logo.xml" value="0.18931159420289856" />
       </map>
     </option>
   </component>

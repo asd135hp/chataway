@@ -13,4 +13,33 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="Theme.Chataway.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Chataway.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Chataway.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.Chataway.ChatBoxEditText">
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    <style name="Theme.Chataway.SquareIcons">
+        <item name="layout_constraintDimensionRatio">1</item>
+        <item name="layout_constraintWidth">0dp</item>
+        <item name="layout_constraintHeight">0dp</item>
+    </style>
+    <style name="Theme.Chataway.MessageActivityBar">
+        <item name="layout_constraintDimensionRatio">6:1</item>
+        <item name="android:padding">8dp</item>
+    </style>
+    <style name="Theme.Chataway.MainLogo">
+        <item name="android:text">@string/app_name</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="Theme.Chataway.Version">
+        <item name="android:text">v0.1</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
 </resources>
