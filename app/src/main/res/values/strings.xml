@@ -3,18 +3,25 @@
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_sign_in">Sign in</string>
     <string name="welcome">"Welcome!"</string>
     <string name="invalid_username">Not a valid email</string>
-    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="invalid_password">Password must be >8 characters</string>
+    <string name="invalid_password_brief">
+        Password must be >8 characters and contains one of following: &amp;,$,_,#,!,(,)
+    </string>
     <string name="login_failed">"Login failed"</string>
+    <!-- Strings related to register -->
+    <string name="action_register">Register</string>
+    <string name="register_failed">"Register failed"</string>
     <string name="title_activity_logged_in">LoggedInActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
+    <!-- Strings for friend list activity -->
+    <string name="search">Search people</string>
 
     <!-- Strings for chat messages activity -->
     <string name="status_active">Active now</string>
@@ -23,4 +30,9 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="guest_login">Continue as guest</string>
     <string name="real_login">Login</string>
+    <string name="real_register">Register</string>
+    <string name="title_activity_register">RegisterActivity</string>
+
+    <!-- Dummy until solution found -->
+    <string name="action_sign_in_short">Log in</string>
 </resources>

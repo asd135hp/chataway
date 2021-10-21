@@ -10,9 +10,9 @@ data class UserProfile(
 ) {
     fun toMap(): Map<String, String>
     = mapOf(
-        "display_name" to "$displayName",
-        "photo_url" to "${photoURL?.encodedPath}",
-        "email" to "$email",
-        "dob" to DOB
+        FirebaseConstants.USER_DISPLAY_NAME to "$displayName",
+        FirebaseConstants.USER_PHOTO_URL to "${photoURL?.encodedPath}",
+        FirebaseConstants.USER_EMAIL to "$email",
+        FirebaseConstants.USER_DOB to DOB
     )
 }

@@ -5,19 +5,15 @@ import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.EditText
-import android.widget.Toast
 import com.chataway.databinding.ActivityLoginBinding
 
 import com.chataway.ui.login.LoginViewModel
 import com.chataway.ui.login.LoginViewModelFactory
-import com.google.firebase.auth.FirebaseUser
+import com.chataway.ui.login.Utility
+import com.chataway.ui.login.afterTextChanged
 
 class LoginActivity : AppCompatActivity() {
 
@@ -26,7 +22,6 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -57,14 +52,15 @@ class LoginActivity : AppCompatActivity() {
 
             loading.visibility = View.GONE
             if (loginResult.error != null) {
-                showLoginFailed(loginResult.error)
+                Utility.showActionFailed(this, loginResult.error)
             }
             if (loginResult.success != null) {
-                updateUiWithUser(loginResult.success)
+                Utility.updateUiWithUser(this, loginResult.success)
+
+                setResult(Activity.RESULT_OK, Intent().apply{
+                    putExtra(FIREBASE_USER_INTENT_KEY, loginResult.success)
+                })
             }
-            setResult(Activity.RESULT_OK, Intent().apply{
-                putExtra(FIREBASE_USER_INTENT_KEY, loginResult.success)
-            })
 
             //Complete and destroy login activity once successful
             finish()
@@ -102,34 +98,4 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-
-    private fun updateUiWithUser(model: FirebaseUser) {
-        val welcome = getString(R.string.welcome)
-        val displayName = model.displayName
-        // TODO : initiate successful logged in experience
-        Toast.makeText(
-            applicationContext,
-            "$welcome $displayName",
-            Toast.LENGTH_LONG
-        ).show()
-    }
-
-    private fun showLoginFailed(@StringRes errorString: Int) {
-        Toast.makeText(applicationContext, errorString, Toast.LENGTH_SHORT).show()
-    }
-}
-
-/**
- * Extension function to simplify setting an afterTextChanged action to EditText components.
- */
-fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
-    this.addTextChangedListener(object : TextWatcher {
-        override fun afterTextChanged(editable: Editable?) {
-            afterTextChanged.invoke(editable.toString())
-        }
-
-        override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-
-        override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
-    })
 }

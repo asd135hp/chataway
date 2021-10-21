@@ -1,26 +1,35 @@
 package com.chataway.data
 
 import com.chataway.data.model.UserProfile
+import com.chataway.data.model.FirebaseConstants
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 
-class FirebaseCustomOperations(private val db: DatabaseReference) {
-    companion object{
-        private const val DB_ENTRY_KEY = "users"
-        private const val DB_CHAT_LOG_KEY = "chat_log"
-    }
+typealias ValueListener = (DataSnapshot) -> Unit
 
-    private fun getDatabase(uid: String): DatabaseReference
-        = db.child(DB_ENTRY_KEY).child(uid)
+object FirebaseCustomOperations {
+    private val db = FirebaseDatabase.getInstance().reference
+
+    private fun getUserDatabase(uid: String): DatabaseReference
+        = db.child(FirebaseConstants.DB_ENTRY_KEY).child(uid)
 
     private fun getChatLogDatabase(uid: String, targetUID: String): DatabaseReference
-        = getDatabase(uid).child(DB_CHAT_LOG_KEY).child(targetUID)
+        = getUserDatabase(uid).child(FirebaseConstants.USER_CHAT_LOG).child(targetUID)
+
+    fun iterateThroughAllUsers(listener: ValueListener){
+        db.child(FirebaseConstants.DB_ENTRY_KEY).addListenerForSingleValueEvent(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) = listener(snapshot)
+            override fun onCancelled(error: DatabaseError) {}
+        })
+    }
 
     // add new user to the list of registered user for this app
     fun addUser(user: FirebaseUser, completionHandler: DatabaseReference.CompletionListener?)
-        = getDatabase(user.uid).setValue(
+        = getUserDatabase(user.uid).setValue(
             UserProfile(
                 user.displayName,
                 user.photoUrl,
@@ -33,26 +42,26 @@ class FirebaseCustomOperations(private val db: DatabaseReference) {
     fun editUser(userUID: String,
                  newProfile: UserProfile,
                  completionHandler: DatabaseReference.CompletionListener?)
-        = getDatabase(userUID).updateChildren(newProfile.toMap(), completionHandler)
+        = getUserDatabase(userUID).updateChildren(newProfile.toMap(), completionHandler)
 
     // get all user data from the database
     fun getUser(userUID: String, onTaskCompleteHandler: OnCompleteListener<DataSnapshot>)
-        = getDatabase(userUID).get().addOnCompleteListener(onTaskCompleteHandler)
+        = getUserDatabase(userUID).get().addOnCompleteListener(onTaskCompleteHandler)
 
     // delete user when the session is finished (guest)
     fun deleteUser(userUID: String, completionHandler: DatabaseReference.CompletionListener?)
-        = getDatabase(userUID).removeValue(completionHandler)
+        = getUserDatabase(userUID).removeValue(completionHandler)
 
     //
-    fun updateChatLog(userUID: String, targetUID: String, messages: List<String>): Boolean {
-        var encryptedLog = Encryption.encryptChatLog(userUID, messages)
-        if(encryptedLog == null){
-            encryptedLog = Encryption.encryptChatLog(userUID, messages)
-            if(encryptedLog == null) return false
-        }
-
+    suspend fun updateChatLog(userUID: String, targetUID: String, chatLog: ChatLog): Boolean {
         // set the encrypted log to the database
-        getChatLogDatabase(userUID, targetUID).setValue(encryptedLog)
+        val encryptedChatLog = withContext(Dispatchers.Default) {
+            chatLog.encryptChatLog()
+        }
+        getChatLogDatabase(userUID, targetUID)
+            .updateChildren(
+                mapOf(FirebaseConstants.USER_CHAT_LOG_CONTENT to encryptedChatLog)
+            )
         return true
     }
 
@@ -60,25 +69,22 @@ class FirebaseCustomOperations(private val db: DatabaseReference) {
     fun setRealtimeTyping(userUID: String, targetUID: String, isTyping: Boolean): Boolean {
         var isSucceeded = true
         getChatLogDatabase(userUID, targetUID)
-            .updateChildren(mapOf("is_typing" to isTyping))
+            .updateChildren(mapOf(FirebaseConstants.USER_IS_TYPING to isTyping))
             .addOnFailureListener { isSucceeded = false }
         return isSucceeded
     }
 
     // an empty chat log upon failure
-    fun getChatLog(userUID: String, targetUID: String): List<String> {
-        var chatLog: List<String> = listOf()
+    fun getChatLog(userUID: String, targetUID: String, chatLog: ChatLog) {
         getChatLogDatabase(userUID, targetUID)
+            .child(FirebaseConstants.USER_CHAT_LOG_CONTENT)
             .get()
             .addOnCompleteListener { result ->
                 if(result.isSuccessful){
                     val data = result.result?.getValue(String::class.java)
-                    if(data != null) {
-                        val decryptedChatLog = Encryption.decryptChatLog(userUID, data)
-                        if(decryptedChatLog != null) chatLog = decryptedChatLog
-                    }
+                    if(data != null) runBlocking { chatLog.decryptChatLog(data) }
+                    else chatLog.clear()
                 }
-            }
-        return chatLog
+            }.result
     }
 }
