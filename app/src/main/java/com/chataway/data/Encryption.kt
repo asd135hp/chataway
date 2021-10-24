@@ -4,6 +4,9 @@ import android.content.Context
 import android.util.Log
 import androidx.security.crypto.MasterKey
 import com.chataway.TAG
+import java.io.File
+import java.io.FileReader
+import java.io.FileWriter
 import java.security.Key
 import java.security.KeyStore
 import javax.crypto.Cipher
@@ -42,7 +45,7 @@ object Encryption {
         privateKey = entry.secretKey
     }
 
-    fun encryptString(context: Context, byte: ByteArray): String? {
+    fun encrypt(context: Context, byte: ByteArray): ByteArray? {
         return try {
             if(privateKey == null) return null
 
@@ -51,12 +54,13 @@ object Encryption {
             }
 
             val iv = cipher.parameters.getParameterSpec(GCMParameterSpec::class.java).iv
+
             context.openFileOutput(IV_FILE, Context.MODE_PRIVATE).apply {
                 write(iv)
                 close()
             }
 
-            cipher.doFinal(byte)?.toString()
+            cipher.doFinal(byte)
         } catch(e: Exception){
             Log.e(TAG, "Cause: ${e.cause}\n" +
                     "Message: ${e.message}\n" +
@@ -65,7 +69,9 @@ object Encryption {
         }
     }
 
-    fun decryptString(context: Context, encryptedString: String): ByteArray? {
+    // do not try to cast string to encrypted byte array
+    // and recast it into byte array for this method
+    fun decrypt(context: Context, encryptedByteArray: ByteArray): ByteArray? {
         return try {
             if(privateKey == null) return null
 
@@ -79,8 +85,8 @@ object Encryption {
                 init(Cipher.DECRYPT_MODE, privateKey, ivParamSpec)
             }
 
-            Log.i(TAG, "${encryptedString.toByteArray().size} ${encryptedString.length}")
-            cipher.doFinal(encryptedString.toByteArray())
+            Log.i(TAG, "${encryptedByteArray.size} ${encryptedByteArray.size}")
+            cipher.doFinal(encryptedByteArray)
         } catch(e: Exception){
             Log.e(
                 TAG, "Cause: ${e.cause}\n" +

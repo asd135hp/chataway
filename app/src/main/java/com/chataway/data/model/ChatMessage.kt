@@ -6,4 +6,5 @@ import kotlinx.serialization.Serializable
 data class ChatMessage(
     val date: String,
     val time: String,
-    val message: String)
+    val message: String,
+    val uid: String)

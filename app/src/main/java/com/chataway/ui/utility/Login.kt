@@ -1,4 +1,4 @@
-package com.chataway.ui.login
+package com.chataway.ui.utility
 
 import android.content.Context
 import android.text.Editable
@@ -10,7 +10,7 @@ import androidx.annotation.StringRes
 import com.chataway.R
 import com.google.firebase.auth.FirebaseUser
 
-object Utility {
+object Login {
     private val specialChars = Regex("")
 
     fun isEmailValid(email: String): Boolean

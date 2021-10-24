@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 const val FIREBASE_USER_INTENT_KEY = "firebase_user"
+const val ACTIVITY_INTENT_KEY = "which_activity"
 const val TAG = "chataway"
 
 class MainActivity : AppCompatActivity() {
@@ -20,15 +21,26 @@ class MainActivity : AppCompatActivity() {
     private var user: FirebaseUser? = null
     private val newActivity =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if(result.resultCode == Activity.RESULT_OK){
-                user = result.data?.getParcelableExtra(FIREBASE_USER_INTENT_KEY)
-                if(user == null){
+            when(result.resultCode){
+                Activity.RESULT_OK -> {
+                    // redirect user to logged in activity
+                    user = result.data?.getParcelableExtra(FIREBASE_USER_INTENT_KEY)
+                    if(user == null){
+                        Toast.makeText(
+                            this,
+                            "An unexpected error happened. Please try again!",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    } else settleToLoggedInActivity(user)
+                }
+                Activity.RESULT_CANCELED -> {
+                    // output a result for failed user addition from logged in activity
                     Toast.makeText(
                         this,
                         "An unexpected error happened. Please try again!",
                         Toast.LENGTH_LONG
                     ).show()
-                } else settleToLoggedInActivity(user)
+                }
             }
         }
 
@@ -75,7 +87,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun settleToLoggedInActivity(user: FirebaseUser?){
-        newActivity.launch(Intent(this, LoggedInActivity::class.java).apply{
+        startActivity(Intent(this, LoggedInActivity::class.java).apply{
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             putExtra(FIREBASE_USER_INTENT_KEY, user)
         })
     }

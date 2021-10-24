@@ -23,16 +23,6 @@ class ExampleInstrumentedTest {
 
     @Test
     fun test_encryption_and_decryption() {
-        activityScenarioRule.scenario.onActivity {
-            val chatLog = ChatLog(it, "abc").apply {
-                addNewChatMessage("Hello!")
-            }
 
-            val encryptedChatLog = chatLog.encryptChatLog()
-            assertNotEquals(encryptedChatLog, null)
-
-            chatLog.decryptChatLog(encryptedChatLog!!)
-            assertEquals(chatLog.chatMessages[0], "Hello!")
-        }
     }
 }

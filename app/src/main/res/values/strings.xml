@@ -33,6 +33,11 @@
     <string name="real_register">Register</string>
     <string name="title_activity_register">RegisterActivity</string>
 
+    <!-- Misc -->
+    <string name="add_new_question">Your new friend details</string>
+    <string name="add_new_display_name">Display name</string>
+    <string name="add_new_phone_number">Phone number</string>
+    <string name="add_new_button">Add friend</string>
     <!-- Dummy until solution found -->
     <string name="action_sign_in_short">Log in</string>
 </resources>

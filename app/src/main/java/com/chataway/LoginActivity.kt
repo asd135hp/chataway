@@ -12,8 +12,8 @@ import com.chataway.databinding.ActivityLoginBinding
 
 import com.chataway.ui.login.LoginViewModel
 import com.chataway.ui.login.LoginViewModelFactory
-import com.chataway.ui.login.Utility
-import com.chataway.ui.login.afterTextChanged
+import com.chataway.ui.utility.Login
+import com.chataway.ui.utility.afterTextChanged
 
 class LoginActivity : AppCompatActivity() {
 
@@ -52,10 +52,10 @@ class LoginActivity : AppCompatActivity() {
 
             loading.visibility = View.GONE
             if (loginResult.error != null) {
-                Utility.showActionFailed(this, loginResult.error)
+                Login.showActionFailed(this, loginResult.error)
             }
             if (loginResult.success != null) {
-                Utility.updateUiWithUser(this, loginResult.success)
+                Login.updateUiWithUser(this, loginResult.success)
 
                 setResult(Activity.RESULT_OK, Intent().apply{
                     putExtra(FIREBASE_USER_INTENT_KEY, loginResult.success)

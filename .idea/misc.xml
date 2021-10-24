@@ -19,16 +19,23 @@
         <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_item_list.xml" value="0.20244565217391305" />
         <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_login.xml" value="0.2" />
         <entry key="..\:/Users/DELL/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_logo.xml" value="0.18931159420289856" />
+        <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/drawable/box_border.xml" value="0.240625" />
         <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout-w1240dp/activity_register.xml" value="0.1" />
         <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout-w936dp/activity_register.xml" value="0.1" />
-        <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/activity_chat_messages.xml" value="0.2" />
+        <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/activity_chat_messages.xml" value="0.25" />
         <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/activity_logged_in.xml" value="0.25" />
+        <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/activity_logged_in1.xml" value="0.1816123188405797" />
         <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/activity_profile_viewer.xml" value="0.19429347826086957" />
+        <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/activity_new_friend.xml" value="0.22" />
+        <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/activity_profile_editor.xml" value="0.1816123188405797" />
+        <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/activity_profile_viewer.xml" value="0.33" />
         <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/activity_register.xml" value="0.19429347826086957" />
+        <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/content_logged_in1.xml" value="0.1816123188405797" />
         <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_chat_message_item.xml" value="0.19429347826086957" />
-        <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_friend_item.xml" value="0.25" />
+        <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_first.xml" value="0.1816123188405797" />
+        <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_friend_item.xml" value="0.33" />
+        <entry key="..\:/Users/Tung Doan/OneDrive - Swinburne University/COS30017 - Software Development for Mobile Devices/chataway/app/src/main/res/layout/fragment_second.xml" value="0.1816123188405797" />
       </map>
     </option>
   </component>

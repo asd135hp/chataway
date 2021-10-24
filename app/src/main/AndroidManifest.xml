@@ -4,11 +4,23 @@
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Chataway">
+        <activity
+            android:name=".ProfileEditorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NewFriendActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoggedInActivity1"
+            android:exported="false"
+            android:label="@string/title_activity_logged_in1"
+            android:theme="@style/Theme.Chataway.NoActionBar" />
         <activity
             android:name=".RegisterActivity"
             android:exported="false"

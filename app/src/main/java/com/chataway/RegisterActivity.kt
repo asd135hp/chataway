@@ -9,11 +9,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import com.chataway.databinding.ActivityRegisterBinding
-import com.chataway.ui.login.Utility
-import com.chataway.ui.login.afterTextChanged
 
 import com.chataway.ui.register.RegisterViewModel
 import com.chataway.ui.register.RegisterViewModelFactory
+import com.chataway.ui.utility.Login
+import com.chataway.ui.utility.afterTextChanged
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -52,10 +52,10 @@ class RegisterActivity : AppCompatActivity() {
 
             loading.visibility = View.GONE
             if (registerResult.error != null) {
-                Utility.showActionFailed(this, registerResult.error)
+                Login.showActionFailed(this, registerResult.error)
             }
             if (registerResult.success != null) {
-                Utility.updateUiWithUser(this, registerResult.success)
+                Login.updateUiWithUser(this, registerResult.success)
 
                 setResult(Activity.RESULT_OK, Intent().apply{
                     putExtra(FIREBASE_USER_INTENT_KEY, registerResult.success)

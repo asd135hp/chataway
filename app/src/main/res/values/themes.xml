@@ -13,54 +13,76 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
     <style name="Theme.Chataway.ActionIcon">
         <item name="tint">@color/white</item>
         <item name="android:layout_gravity">center</item>
     </style>
+
     <style name="Theme.Chataway.MoreActionIcon">
         <item name="tint">@color/black</item>
         <item name="android:layout_gravity">center</item>
     </style>
+
     <style name="Theme.Chataway.ButtonWrapper">
         <item name="android:layout_width">60dp</item>
         <item name="cardCornerRadius">0dp</item>
     </style>
-    <style name="Theme.Chataway.EditButtonWrapper" parent="Theme.Chataway.ButtonWrapper">
-        <item name="cardBackgroundColor">#0000ff</item>
-    </style>
+
     <style name="Theme.Chataway.DeleteButtonWrapper" parent="Theme.Chataway.ButtonWrapper">
-        <item name="cardBackgroundColor">#ff0000</item>
+        <item name="cardBackgroundColor">@color/primary_red</item>
+        <item name="cardElevation">0dp</item>
     </style>
+
     <style name="Theme.Chataway.MoreButtonWrapper" parent="Theme.Chataway.ButtonWrapper">
-        <item name="cardBackgroundColor">@android:color/transparent</item>
+        <item name="cardBackgroundColor">@color/white</item>
+        <item name="cardElevation">10dp</item>
     </style>
+
     <style name="Theme.Chataway.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
     <style name="Theme.Chataway.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="Theme.Chataway.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
     <style name="Theme.Chataway.ChatBoxEditText">
         <item name="android:textSize">14sp</item>
         <item name="android:background">@android:color/transparent</item>
     </style>
+
+    <style name="Theme.Chataway.Avatar">
+        <item name="layout_constraintHeight">160dp</item>
+        <item name="layout_constraintWidth">160dp</item>
+    </style>
+
     <style name="Theme.Chataway.SquareIcons">
         <item name="layout_constraintDimensionRatio">1</item>
         <item name="layout_constraintWidth">0dp</item>
         <item name="layout_constraintHeight">0dp</item>
     </style>
+
     <style name="Theme.Chataway.MessageActivityBar">
         <item name="layout_constraintDimensionRatio">5.5:1</item>
         <item name="android:padding">8dp</item>
     </style>
+
     <style name="Theme.Chataway.MainLogo">
         <item name="android:text">@string/app_name</item>
         <item name="android:textSize">28sp</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
+
     <style name="Theme.Chataway.Version">
         <item name="android:text">v0.1</item>
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="Theme.Chataway.SmallTitle">
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>

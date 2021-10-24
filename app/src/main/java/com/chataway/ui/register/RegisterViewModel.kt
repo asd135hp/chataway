@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 import com.chataway.R
-import com.chataway.ui.login.Utility
+import com.chataway.ui.utility.Login
 import com.chataway.ui.login.LoginResult
 import com.google.firebase.auth.FirebaseAuth
 
@@ -39,9 +39,9 @@ class RegisterViewModel(private val firebaseAuth: FirebaseAuth) : ViewModel() {
     }
 
     fun registerDataChanged(email: String, password: String) {
-        if (!Utility.isEmailValid(email)) {
+        if (!Login.isEmailValid(email)) {
             _registerForm.value = RegisterFormState(emailError = R.string.invalid_username)
-        } else if (!Utility.isPasswordValid(password)) {
+        } else if (!Login.isPasswordValid(password)) {
             _registerForm.value = RegisterFormState(passwordError = R.string.invalid_password)
         } else {
             _registerForm.value = RegisterFormState(isDataValid = true)

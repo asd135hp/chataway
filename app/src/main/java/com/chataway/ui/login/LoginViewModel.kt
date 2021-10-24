@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 import com.chataway.R
+import com.chataway.ui.utility.Login
 import com.google.firebase.auth.FirebaseAuth
 
 const val TAG = "login-task"
@@ -38,9 +39,9 @@ class LoginViewModel(private val firebaseAuth: FirebaseAuth) : ViewModel() {
     }
 
     fun loginDataChanged(email: String, password: String) {
-        if (!Utility.isEmailValid(email)) {
+        if (!Login.isEmailValid(email)) {
             _loginForm.value = LoginFormState(emailError = R.string.invalid_username)
-        } else if (!Utility.isPasswordValid(password)) {
+        } else if (!Login.isPasswordValid(password)) {
             _loginForm.value = LoginFormState(passwordError = R.string.invalid_password)
         } else {
             _loginForm.value = LoginFormState(isDataValid = true)
