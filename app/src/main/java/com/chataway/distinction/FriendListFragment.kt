@@ -16,7 +16,8 @@ import androidx.recyclerview.widget.ItemTouchHelper.*
 import com.chataway.R
 
 //import com.chataway.distinction.firstApproach.FriendListRecyclerViewAdapter
-import com.chataway.distinction.secondApproach.FriendListRecyclerViewAdapter
+//import com.chataway.distinction.secondApproach.FriendListRecyclerViewAdapter
+import com.chataway.distinction.thirdApproach.FriendListRecyclerViewAdapter
 
 /**
  * A fragment representing a list of Items.

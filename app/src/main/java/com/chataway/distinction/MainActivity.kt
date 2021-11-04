@@ -2,6 +2,7 @@ package com.chataway.distinction
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import com.chataway.databinding.ActivityLoggedInBinding
@@ -19,6 +20,11 @@ class MainActivity : AppCompatActivity() {
 
         val searchIcon = binding.searchIcon
         val searchBar = binding.searchBar
+        val avatarView = binding.checkOutProfile
+
+        avatarView.setOnClickListener {
+            Toast.makeText(this, "Checking out your profile", Toast.LENGTH_LONG).show()
+        }
 
         // search bar
         searchIcon.setOnClickListener { searchBar.requestFocus() }
