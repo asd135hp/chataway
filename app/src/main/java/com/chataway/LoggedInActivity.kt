@@ -7,8 +7,11 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
 import com.chataway.data.firebase.UserOperations
 import com.chataway.databinding.ActivityLoggedInBinding
+import com.chataway.distinction.FriendListFragment
 import com.chataway.ui.main.FriendBoxFragment
 import com.chataway.ui.utility.afterTextChanged
 import com.google.firebase.auth.FirebaseUser
@@ -17,6 +20,7 @@ const val NEW_FRIEND_UID_INTENT_KEY = "new_friend_uid"
 
 class LoggedInActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoggedInBinding
+
     private var user: FirebaseUser? = null
 
     private val newActivity =

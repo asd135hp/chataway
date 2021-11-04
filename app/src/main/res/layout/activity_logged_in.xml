@@ -7,6 +7,7 @@
     tools:context=".LoggedInActivity">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView6"
         style="@style/Theme.Chataway.MessageActivityBar"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -72,6 +73,7 @@
                         android:id="@+id/search_bar"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
+                        android:layout_marginStart="8dp"
                         android:layout_marginEnd="16dp"
                         android:background="@android:color/white"
                         android:ems="10"
@@ -106,13 +108,12 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/friend_list"
-        android:name="com.chataway.ui.main.FriendBoxFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView6" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_new_friend"

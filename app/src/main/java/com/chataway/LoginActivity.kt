@@ -59,6 +59,7 @@ class LoginActivity : AppCompatActivity() {
 
                 setResult(Activity.RESULT_OK, Intent().apply{
                     putExtra(FIREBASE_USER_INTENT_KEY, loginResult.success)
+                    putExtra(IS_LOGIN_REQUESTED, true)
                 })
             }
 
@@ -97,5 +98,12 @@ class LoginActivity : AppCompatActivity() {
                 loginViewModel.login(username.text.toString(), password.text.toString())
             }
         }
+    }
+
+    override fun onBackPressed() {
+        setResult(Activity.RESULT_OK, Intent().apply {
+            putExtra(IS_LOGIN_REQUESTED, true)
+        })
+        super.onBackPressed()
     }
 }

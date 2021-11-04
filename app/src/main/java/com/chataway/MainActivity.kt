@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 const val FIREBASE_USER_INTENT_KEY = "firebase_user"
+const val IS_LOGIN_REQUESTED = "login_requested"
 const val ACTIVITY_INTENT_KEY = "which_activity"
 const val TAG = "chataway"
 
@@ -24,14 +25,21 @@ class MainActivity : AppCompatActivity() {
             when(result.resultCode){
                 Activity.RESULT_OK -> {
                     // redirect user to logged in activity
+                    val isLoginRequested = result.data?.getBooleanExtra(
+                        IS_LOGIN_REQUESTED,
+                        false
+                    ) ?: false
                     user = result.data?.getParcelableExtra(FIREBASE_USER_INTENT_KEY)
-                    if(user == null){
+
+                    if(user == null && !isLoginRequested){
                         Toast.makeText(
                             this,
                             "An unexpected error happened. Please try again!",
                             Toast.LENGTH_LONG
                         ).show()
-                    } else settleToLoggedInActivity(user)
+                    }
+
+                    if(user != null && isLoginRequested) settleToLoggedInActivity(user)
                 }
                 Activity.RESULT_CANCELED -> {
                     // output a result for failed user addition from logged in activity

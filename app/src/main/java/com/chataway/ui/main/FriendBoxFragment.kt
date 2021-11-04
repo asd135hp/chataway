@@ -73,10 +73,9 @@ class FriendBoxFragment : Fragment() {
         if (view is RecyclerView) {
             view.layoutManager = LinearLayoutManager(context)
 
-            friendRowsViewModel.friendList.observe(viewLifecycleOwner) { rows ->
+            friendRowsViewModel.friendList.observe(viewLifecycleOwner) { _ ->
                 view.adapter = FriendBoxRecyclerViewAdapter(
-                    friendRowsViewModel.currentUserUID,
-                    rows,
+                    friendRowsViewModel,
                     newActivity
                 )
             }

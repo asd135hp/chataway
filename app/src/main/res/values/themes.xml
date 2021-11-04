@@ -65,7 +65,7 @@
     </style>
 
     <style name="Theme.Chataway.MessageActivityBar">
-        <item name="layout_constraintDimensionRatio">5.5:1</item>
+        <item name="layout_constraintDimensionRatio">5:1</item>
         <item name="android:padding">8dp</item>
     </style>
 

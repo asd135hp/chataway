@@ -59,6 +59,7 @@ class RegisterActivity : AppCompatActivity() {
 
                 setResult(Activity.RESULT_OK, Intent().apply{
                     putExtra(FIREBASE_USER_INTENT_KEY, registerResult.success)
+                    putExtra(IS_LOGIN_REQUESTED, true)
                 })
             }
 
@@ -97,5 +98,12 @@ class RegisterActivity : AppCompatActivity() {
                 registerViewModel.register(username.text.toString(), password.text.toString())
             }
         }
+    }
+
+    override fun onBackPressed() {
+        setResult(Activity.RESULT_OK, Intent().apply {
+            putExtra(IS_LOGIN_REQUESTED, true)
+        })
+        super.onBackPressed()
     }
 }

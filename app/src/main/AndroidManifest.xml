@@ -17,11 +17,6 @@
             android:name=".NewFriendActivity"
             android:exported="false" />
         <activity
-            android:name=".LoggedInActivity1"
-            android:exported="false"
-            android:label="@string/title_activity_logged_in1"
-            android:theme="@style/Theme.Chataway.NoActionBar" />
-        <activity
             android:name=".RegisterActivity"
             android:exported="false"
             android:label="@string/title_activity_register"
@@ -39,21 +34,23 @@
             android:name=".ProfileViewerActivity"
             android:exported="true"
             android:theme="@style/Theme.Chataway.NoActionBar" />
+        <!-- Originally .LoggedInActivity -->
         <activity
-            android:name=".LoggedInActivity"
+            android:name=".distinction.MainActivity"
             android:exported="true"
             android:label="@string/title_activity_logged_in"
-            android:theme="@style/Theme.Chataway.NoActionBar" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"
             android:theme="@style/Theme.Chataway.NoActionBar">
+            <!-- Temporary solution, below intent filter should be for the main activity -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Chataway.NoActionBar"/>
     </application>
 
 </manifest>

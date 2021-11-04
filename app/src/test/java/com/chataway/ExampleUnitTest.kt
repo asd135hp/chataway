@@ -3,6 +3,7 @@ package com.chataway
 import org.junit.Test
 
 import org.junit.Assert.*
+import org.junit.Ignore
 
 /**
  * Example local unit test, which will execute on the development machine (host).
