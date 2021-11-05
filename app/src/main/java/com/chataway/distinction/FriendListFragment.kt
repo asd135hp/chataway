@@ -15,9 +15,11 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.ItemTouchHelper.*
 import com.chataway.R
 
-//import com.chataway.distinction.firstApproach.FriendListRecyclerViewAdapter
+// either enable or disable ItemTouchHelper RecyclerView attachment method, depending on the need
+import com.chataway.distinction.firstApproach.FriendListRecyclerViewAdapter
+
+// enable ItemTouchHelper RecyclerView attachment method
 //import com.chataway.distinction.secondApproach.FriendListRecyclerViewAdapter
-import com.chataway.distinction.thirdApproach.FriendListRecyclerViewAdapter
 
 /**
  * A fragment representing a list of Items.
@@ -89,7 +91,7 @@ class FriendListFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         // risk of running this twice
-        if(nameFilter.isEmpty()) Placeholder.initialize()
+        if(nameFilter.isEmpty()) Placeholder.initialize("", 1000)
 
         requireArguments().also {
             // check if name filter is unique for filtering feature
@@ -112,7 +114,7 @@ class FriendListFragment : Fragment() {
 
         // Set the adapter
         if (view is RecyclerView) {
-            touchHelper.attachToRecyclerView(view)
+            //touchHelper.attachToRecyclerView(view) // toggle this line to enable or disable ItemTouchHelper
             view.layoutManager = LinearLayoutManager(context)
             view.adapter = FriendListRecyclerViewAdapter()
         }
